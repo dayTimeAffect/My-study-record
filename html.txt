@@ -1,0 +1,24 @@
+1、行级元素 内联元素 inline  其实在css属性中默认一个属性display:inline
+	feature :
+		内容决定元素所占位置
+		不可以通过css改变宽高
+span strong(加粗) em(斜体) a(链接) del(中划线)
+2、块级元素 block    其实在css属性中默认一个属性display:block
+	feature  :
+		独占一行
+		可以通过css改变宽高
+div p(段落) ul(无序列表) li(列表) ol(有序列表) form(表单) address(地址标签)
+
+3、行级块元素 inline-block   其实在css属性中默认一个属性display:inline-block
+	feature  :
+		内容决定大小
+		可以改宽高
+img(图片)
+
+凡是带有inline属性的都带有文本属性
+可以使用display:block改变img,可以做到图片无缝连接
+
+
+行级元素只能嵌套行级元素（span里面只能加行级元素）
+块级元素可以嵌套任何元素（div里面可以加任何元素）
+特殊的，块级元素p标签不能套块级元素div

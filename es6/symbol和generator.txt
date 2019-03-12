@@ -1,0 +1,26 @@
+symbol定义：
+	let syml = Symbol(xxx);
+注意：
+	1、Symbol不能new
+	2、Symbol()返回是一个唯一值（一般说是作为key，定义一些唯一或者私有的值）
+	3、typeof检测出来的数据类型是symbol
+	4、symbol是一个单独的数据类型，就叫symbol
+	5、symbol如果作为key，用for in 循环遍历不出
+
+-------------------------------------------------------------------
+
+generator函数//解决异步，深度嵌套的问题
+
+语法：
+	function * show(){
+		yield
+	}
+定义：
+		function * gen(){
+		yield "welcome"
+		yield "to"
+		return "CXD"
+	}
+调用 let g1 = gen();
+	g1.next()//返回一个对象{value:"(值)welcome",done:(是否到return)false}
+或：使用for...of//for(let val of g1)。但不会遍历return的值

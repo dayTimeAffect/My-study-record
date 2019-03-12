@@ -1,0 +1,44 @@
+1、鼠标事件
+	1、	
+		click	敲击鼠标
+		mousedown  onmousedown、onmouseup 以及 onclick 事件是鼠标点击的全部过程。
+		mouseup	   首先当某个鼠标按钮被点击时触发down，然后当鼠标按钮被松开时，会触发up，最后当点击完成时触发click
+		mousemove  当鼠标移动时触发事件
+		contextmenu  点击右键事件，一般用来取消
+		mouseover/mouseenter  鼠标进去该区域触发事件
+		mouseout/mouseleava   鼠标移出该区域触发事件
+当绑定事件的元素里面有子元素的时候，
+鼠标经过绑定mouseover的当前元素以及它里面的子元素的时候，都会触发，
+而经过绑定mouseenter的元素时，只会在鼠标刚进入的时候触发，当进入其子元素的时候，是不会再触发的了
+
+	2、用button来区分 0/1/2
+		只能用mousedown/mouseup来判断左右键。e.button==0为左，1为滚轮，2为右
+		DOM3标准规定：clock事件只能监听左键，所以只能通过mousedown/up来判断鼠标键
+	3、如何解决mousedown和click冲突
+		用时间戳，在mousedown和mouseup分别记录一个时间，然后定一个开关为false，在click事件中判断：若时间相差小于多少，才执行click中的事件
+	4、移动端mouse事件失效，改为touchstart/touchmove/touchend
+
+2、键盘事件
+	keydown / keypress / keyup
+	keydown > keypress > keyup   触发顺序。当按下键不松开。keydown > keypress连续触发
+	区别：
+		keydown:能够监察所有按键
+		keypress：只能检测字符类按键，返回ASCⅡ码（e.charCode）,可以转换成字符(String.fromCharCode(e.charCode))
+
+3、文本操作事件
+	input:文本内容被操作时触发（输入删除）
+	change:对比鼠标聚焦前和鼠标失去焦点后的文本内容，如果不同触发事件，相同不触发事件
+	focus:鼠标聚焦时触发事件
+	blur:鼠标失去焦点时触发事件
+
+4、窗体操作类（window上的事件）
+	scroll:滚动条一滚动，触发事件  window.onscroll
+	load：
+
+
+
+js异步加载方法
+1、在script中加属性defer='defer'。只有IE能用，加载完后，但要当dom文档全部解析完后才执行，可以把代码写在内部
+2、类似上，async='aysnc'，加载完就执行，async只能加载外部脚本，不能把js写在script标签里
+1、2执行时也不阻塞文件，异步禁止使用document.write
+3、创建script插入到DOM

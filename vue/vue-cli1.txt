@@ -1,0 +1,39 @@
+1、vue init webpack 项目名 初始化一个vue项目
+2、npm install 安装依赖包
+3、npm run dev 运行
+
+
+index.html->main.js->App.vue
+引入组件：import xxxx form 'xxxx'
+
+全局注册组件
+Vue.components('xxoo'，'组件')
+
+调用：
+<xxoo></xxoo>
+main.js：
+template:''模板可以放组件调用的标签
+components:{xxxx}组件，组件注册
+
+scoped：
+使样式独立，不互相覆盖
+<style scope></style>
+
+属性传值 父—>子
+父组件中:
+<xxx 绑定v-bind:自定义属性名="定义的属性名"></xxx>
+子组件：
+props:["自定义的属性名"]
+或者props:{
+	自定义的属性名:{
+		type:""
+		required:"是否规格"
+	}
+}
+
+事件传值子—>父
+子组件中需要注册事件：
+this.$emit('自定义事件名'，参数)
+
+父组件需要绑定这个事件：
+v-on:自定义事件名="自定义方法($event参数)"

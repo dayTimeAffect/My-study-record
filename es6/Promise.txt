@@ -1,0 +1,13 @@
+let pro = new Promise(function(resolve,reject){
+	//resolve, 成功调用
+	//reject, 失败调用
+})
+
+pro.then(fun(){成功},fun(){失败})
+pro.catch(fun(){})//捕获错误
+
+
+Promise.resolve(xxx)：将现有的东西，转换成promise对象，并且是resolve状态，成功状态
+Promise.reject(xxx)：将现有的东西，转换成promise对象，并且是reject状态，失败状态
+Promise.all([p1,p2,p3]):把promise打包成数组。必须确保，所有promise对象，都是resolve状态，都是成功状态
+Promise.race([p1,p2,p3]):把promise打包成数组。有一个成功就返回成功状态

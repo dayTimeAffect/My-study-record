@@ -1,0 +1,15 @@
+``:键盘左边的那个键
+`字符串`
+字符串连接：`xxxx${链接的内容}xxx`
+
+str.includes(检测的内容)：查找字符串中是否包含某个内容，返回ture/false
+//之前，用str.indexOf():返回值为索引值
+
+str.startsWith(检测的内容)，检测是否以检测的内容开头
+str.endsWith(检测的内容)，检测是否以检测的内容结尾
+
+str.repeat(次数)，重复str内容，返回一个新的字符串
+
+字符串填充
+str.padStart(整个字符串长度，填充东西)//从前开始
+str.padEnd(整个字符串长度，填充东西)//从后开始

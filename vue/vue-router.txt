@@ -1,0 +1,60 @@
+<router-link to="跳转的地址" tag="设置为什么标签">xxx</router-link>
+
+
+
+routes = [{
+path:'路径',
+component,'组件（引入的组件名）',或者components:{    default:'默认显示的组件'  , xxx1234:'xxx123'   }显示多个组件，再加显示窗口<router-view name = 'xxx1234'></router-view>//xxx1234为额外多显示的
+name:"别名(使用时<:to={name:"别名"}>)"
+children:[{//二级路由
+	path:'路径',
+	component,'组件（引入的组件名）',
+	name:"别名(使用时<:to={name:"别名"}>)"
+	}]，
+redirect:''路径'，来到这个路由默认展示的的路径,
+beforEach: (to,form,next) = {//路由独享守卫
+	//to:要进入的路由
+	//form：从哪个路由离开
+	//next:对应的函数
+	next('路径')；显示路由，默认为进入的路由
+}
+}]
+
+
+//跳转到上一次浏览的页面
+this.$routet.go(-1)
+//指定跳转的地址
+this.$routet.go(地址或者该地址的别名{name:别名})
+//通过push跳转
+this.$routet.push(地址或者该地址的别名{name:别名})
+
+
+路由守卫
+router.beforEach((to,form,next) = {
+//to:要进入的路由
+//form：从哪个路由离开
+//next:对应的函数
+next('路径')；显示路由，默认为进入的路由
+
+})
+后置钩子
+afterEach((to,from) => {
+//to:要进入的路由
+//form：从哪个路由离开
+})
+
+组件内守卫
+进入组件之前
+beforRouterEnter:(to,form,next) = {
+//to:要进入的路由
+//form：从哪个路由离开
+//next:对应的函数
+next('路径')；显示路由，默认为进入的路由
+}
+离开组件之前
+beforRouterLeave:(to,form,next) = {
+//to:要进入的路由
+//form：从哪个路由离开
+//next:对应的函数
+next('路径')；显示路由，默认为进入的路由
+}

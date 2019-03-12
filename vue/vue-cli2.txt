@@ -1,0 +1,35 @@
+生命周期：钩子函数
+beforeCreate:组件实例化之前执行的函数
+created：组件实例化完毕，但页面还未显示
+beforeMount:组件挂载前，页面仍未展示，但虚拟Dom已经配置
+mounted:组件挂载后，此方法执行后，页面展示
+beforeUpdate:组件更新前，页面仍未更新，但虚拟Dom已经配置
+updated:组件更新，此方法执行后，页面显示
+beforeDestroy:组件销毁前
+destroyed:组件销毁
+
+
+路由与Http
+安装路由模块：npm install vue-router --save-dev
+然后main.js中引入：import VueRouter from 'vue-router' 
+然后使用：
+Vue.use(VueRouter)
+然后配置：
+const router = new VueRouter({
+	routes:[
+		{path:"/",component:Home},
+		{path:"/xxxx",component:Xxxx},
+	],
+	mode:"history"
+})
+//path:路径，component：跳转的组件
+显示：在根组件中加入标签<router-view></router-view>
+
+<router-link>默认为a标签，tag属性可以让其变成其他标签
+
+Http:
+安装vue-resource：npm install vue-resource --save-dev
+引入：import vueResource from 'vue-resource' 
+然后：Vue.use(vueResource)
+
+this.$http .get/post("请求地址").then((data) => {//TODO})

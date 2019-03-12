@@ -1,0 +1,28 @@
+cookie -> 时间限制  临时存储
+
+特点弊端   -> 小 4kb
+ 	-> 不安全
+      优势   -> 全部兼容
+	-> 能记录痕迹
+
+
+respond.cookie('key','val','{
+	path:'/地址'，
+	maxAge:'过期时间，单位毫秒'
+	signed: ' true' //require.secret = '签名'  设置签名加密
+}')
+
+cookie-parser插件
+npm install cookie-parser
+
+var cookieParser = require('cookie-parser')
+server.use(cookieParser('签名加密有的话填上 ') )
+require.cookies //获取cookies
+有签名加密的话
+require.signedCookies //获取cookies
+
+
+clearCookie(key) //删除
+
+
+require.secret = '签名'

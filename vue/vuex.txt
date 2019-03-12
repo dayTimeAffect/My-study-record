@@ -1,0 +1,31 @@
+
+state:数据
+
+获取state数据：computed:{
+  xx:function(){
+      return this.$store.state.xxx
+  }
+}
+
+mutations更改stroe中的状态的唯一方法是提交mutation，非常类似于事件
+this.$store.commit('mutations中事件名字')
+
+ations
+(context,payload)=>{
+  payload//是传过来的参数
+  comtext.commit("mutations中事件名字",payload)
+}
+this.$store.dispatch('mutations中事件名字',参数)
+
+getters
+例如
+getters:{
+  可以处理数据:(state//数据) =>{
+      
+  }
+}
+获取getters数据：computed:{
+  xx:function(){
+      return this.$store.getters.可以处理数据
+  }
+}

@@ -1,0 +1,20 @@
+ref标记：在输入框中标记，可在VUE实例中获取值
+<input ref='name' type='text'>
+获取this.$refs.name.value
+
+双向数据绑定<输入input/select/textarea><输出>
+v-model=""
+例,输入<input type="text" v-model="name">
+输出{{name}},name为data中的数据
+
+计算属性computed
+computed与methods的区别：
+methods中的方法：只要触发其中的方法，其他的方法都会执行
+computed中的方法：只有被触发的方法才执行
+computed调用的方法不要加小括号，不能作为事件触发
+
+动态绑定CSS样式
+v-bind:class="{dj_class1(类名):true/false(布尔值)，dj_class2:true/false}"
+为true绑定上，false不绑定
+所以可以在data中添加dj_class1:值为true或者false
+利用v-on：事件=""的形式改变改布尔值，即可动态绑定css样式

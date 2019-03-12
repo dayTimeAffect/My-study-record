@@ -1,0 +1,93 @@
+ES6之前：
+类：
+	属性//构造函数产生
+	方法（函数）//挂在构造函数的prototype上
+function Person(name,age){
+  this.name = name;
+  this.age = age;//属性
+}
+Person.prototype.showName = function(){//方法}
+或者：
+Object.assign(Person.prototype,{
+	showName(){},
+	showAge(){}
+})
+用法，new person()
+--------------------------------------------------------------
+ES6:
+class Person{
+	constructor(参数){
+		//构造方法（函数）,调用new，自动执行
+	}
+	showName(){
+		//
+	}
+	showAge(){
+		//
+	}
+}
+
+用法，new person()
+------------------------------------------------------------
+
+class，没有预解析，不提升
+-----------------------------------------------------------------
+静态方法：static
+class Person{
+	constructor(参数){
+		//构造方法（函数）,调用new，自动执行
+	}
+	static showName(){
+		//静态方法。类的方法
+	}
+
+}
+Person.showName()//大写，这是类在调用
+---------------------------------------------------------------------
+继承
+之前：
+//父类
+function Person(name,age){
+  this.name = name;
+  this.age = age;//属性
+}
+Person.prototype.showName = function(){//方法}
+
+//子类
+function Student(name,skill){
+  Person.call(this,name);//继承属性
+  this.skill = skill;
+}
+Student.portotype = new Person();//继承方法
+-----------------
+ES6中：
+class Person{
+  constructor(name,age){
+	this.name = name;
+	this.age = age;
+  }
+  showName(){
+	//方法
+}
+}
+extends: //继承
+class Student extends Person{
+  constructor(name,skill){
+	super(name)//继承属性
+	this.skill = skill//自己的属性
+  }
+  showSkill(){
+	return `${this.skill}`//自己的方法
+  }
+  
+  showName(){
+	return xxxx//重写自己的方法，覆盖父类
+  }
+  showName(){
+	console.log(super.showName());//可以直接调用父类的方法
+	return xxxx//重写自己的方法，覆盖父类
+  }
+
+
+
+}

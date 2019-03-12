@@ -1,0 +1,14 @@
+const querystring = require('querystring');  //引入querystring 模块，解析数据
+
+querystring.parse（str）  //querystring.parse() 方法将 URL 查询字符串 str 解析为键值对的集合。
+例如，查询字符串 'foo=bar&abc=xyz&abc=123' 被解析为：
+{
+  foo: 'bar',
+  abc: ['xyz', '123']
+}
+
+
+querystring.stringify(obj)   //
+
+querystring.stringify({ foo: 'bar', baz: ['qux', 'quux'], corge: '' });    //与上面相反
+// 返回 'foo=bar&baz=qux&baz=quux&corge='

@@ -1,0 +1,28 @@
+window.onload与$(document).ready(function(){})的区别：
+前者慢后者慢。前者等到所有东西都加载完才执行    后者解析完就执行
+
+
+JSON.parse()  string ---> json
+JSON.stringify    json --->string
+
+
+arrt和prop:
+一般具有true和false两个属性的属性节点如：checked,disabled,selected使用prop
+其他使用attr
+
+
+css隐藏：
+display:none；不占据空间，无法点击；切换显示时页面产生回流，重绘
+visibility:hidden；占据空间，无法点击；切换显示时页面不产生回流，但产生重绘
+opcaty:0；占据空间，可以点击；切换显示时页面不产生回流，但产生重绘
+height:0;overflow:hidden；不占据空间，无法点击
+
+前端由三层结构组成：
+结构层html：控制页面的排版布局；
+表现层css：控制页面的美观；
+行为层js：交互，控制页面逻辑代码；
+
+initial
+设置该属性为它的默认值：font-size:initial
+inherit
+从父元素继承该属性

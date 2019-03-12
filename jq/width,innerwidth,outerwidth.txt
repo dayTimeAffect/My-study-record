@@ -1,0 +1,6 @@
+width():width，不包含padding、border、margin
+innerWidth():width+padding,不包含border、margin
+outerWidth():width+padding+border,不包含margin
+outerWidth(true):width+padding+border+margin
+
+height、innerHeight、outerHeight用法、含义和上述对应一样。

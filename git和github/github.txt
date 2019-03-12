@@ -1,0 +1,18 @@
+推送代码到远端
+git remote add origin(远端代号) <url>
+git push origin(远端代号) master
+
+
+下载代码
+git clone <url>
+上传代码
+git push origin(远端代号) 本地分支
+更新代码
+git pull 
+
+
+增加远程地址
+git remote add origin
+
+
+创建SSH Key ： ssh-keygen -t rsa -C 账号

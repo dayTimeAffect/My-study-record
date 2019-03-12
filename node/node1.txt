@@ -1,0 +1,17 @@
+
+var http = require('http');
+http.createServer(function (request,response) {//request请求，response//响应
+    response.setHeader('Access-Control-Allow-Origin','*')//允许所有人跨域
+    response.write('aaaaaaaaaaaaaa')//写入
+    response.end()//监听结束
+    console.log(request.url);
+}).listen(9217)//监听这个接口
+
+request.on('data',function(){
+//监听数据的接收
+
+})
+request.on('end',function(){
+//数据接收完毕
+
+})

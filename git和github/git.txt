@@ -1,0 +1,49 @@
+创建版本库git init
+git config user.name ""  //git config --global user.name ""
+git config user.email ""
+git config core.autocrlf false
+1、提交文件
+git status查看文件状态
+将文件添加到暂存区 git add 文件名
+提交文件到本地库 git commit -m "注释内容" 直接带注释提交
+
+2、查看文件提交记录
+执行git log 文件名  进行查看历史记录
+git log --pretty=oneline 文件名   简易信息查看
+
+3、回退历史
+git reset --hard HEAD^ 回退到上一次提交
+git reset --hard HEAD~n 回退n次操作
+
+4、版本穿越
+进行查看历史记录的版本号，执行git reflog 文件名
+执行git reset --hard 版本号
+
+5、还原文件
+git checkout --文件名
+
+6、删除某个文件
+先删除文件
+再git add 再提交
+
+7、创建分支
+git branch <分支名>
+git branch -v 查看分支
+
+8、切换分支
+git checkout <分支名>
+一步完成：git checkout -b <分支名> 先创建 再切换
+
+9、合并分支
+先切换到主干 git checkout master
+git merge <分支名>
+
+10、删除分支
+先切换到主干 git checkout master
+git branch -D <分支名>
+
+
+11、解决冲突
+git diff  定位冲突位置
+解决冲突
+再次提交

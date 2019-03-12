@@ -1,0 +1,11 @@
+offset:可以获取值，可以设置值
+获取：XX.offset()   XX.offset().left    XX.offset().top
+设置：XX.offset({left:XXX,top:XXX}),或者用函数返回
+offset返回的在当前视口偏移量和margin值有关
+
+
+position：可以获取值
+获取：XX.position()   XX.position().left    XX.position().top
+position方法事实上是把该元素当绝对定位来处理，获取的是该元素相当于最近的一个拥有绝对或者相对定位的父元素的偏移位置。
+若父元素都没有相对定位，则获取相对于文档的偏移量。
+且任何情况下都与margin值无关

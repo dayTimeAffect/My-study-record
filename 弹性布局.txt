@@ -1,0 +1,60 @@
+css3  flex布局
+
+盒子模型：box-sizing:content-box|border-box
+前者width/height属性为content区域宽高,padding/border会使盒子往外扩展变大
+后者content区域宽高=width/height - padding/border
+
+属性calc计算
+calc(公式)：运算符两边需要空格
+
+display:flex弹性布局 *如果用了弹性布局，子元素float、overflow失效
+父级上加：display:flex
+父级身上还可以加的属性：
+	justify-content:子元素水平排列方式
+		center居中
+		space-between两端对齐
+		space-around[ o  o ]类型于这样
+		flex-start居左
+		flex-end居右
+	align-items:子元素垂直排列方式
+		center居中
+		stretch子元素高度拉伸来适应容器
+		flex-start居左
+		flex-end居右
+	flex-direction：子元素横排还是竖排
+		row:默认，水平，类似float:left
+		column:竖排
+		*注意:改变的是坐标轴，所以会导致其他属性的使用
+	flex-wrap：
+		nowrap：不换行
+		wrap：换行
+		wrap-reverse：换行，但是以相反的顺序
+	align-content：多行的时候，垂直排列
+		center居中
+		space-between两端对齐
+		space-around[ o  o ]类型于这样
+		flex-start居左
+		flex-end居右
+		stretch子元素平分多余的空间排列
+
+子元素上的属性
+	flex：分父级宽度
+		number:系数，占据number/(number+..)
+		*注意：分宽度之前，先减去固定宽度
+flex: flex-grow flex-shrink flex-shrink|auto
+	flex-grow：一个数字，规定项目将相对于其他灵活的项目进行扩展的量。
+	flex-shrink：一个数字，规定项目将相对于其他灵活的项目进行收缩的量。
+	flex-shrink：项目的长度。合法值："auto"、"inherit" 或一个后跟 "%"、"px"、"em" 或任何其他长度单位的数字。
+
+	align-self:子级自己的垂直排列方式，覆盖父级align-items的垂直排列方式
+		值和align-items的值一样
+
+	order:规定子元素排列顺序
+		数值越小越靠前
+		
+	
+align-items和align-content
+如果多行，设置align-items的属性，只会对第一行生效
+
+
+

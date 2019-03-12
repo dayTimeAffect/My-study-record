@@ -1,0 +1,41 @@
+npm install express //下载
+
+var express = require(''express'');
+var server = express();
+
+server.listen(接口)；
+
+server.use('*', function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    res.header('Access-Control-Allow-Methods', '*');
+    res.header('Content-Type', 'application/json;charset=utf-8');
+    next();
+});
+
+第一个参数为次级目录
+server.get('',function(request, response){
+	//TODO
+})
+server.post('',function(request, response){
+	//TODO
+})
+server.use('',function(request, response){ // 同时接受get和post请求
+	//TODO
+})
+
+get数据
+request.query  解析数据
+
+post数据
+body-parse插件 ->npm install body-parse -> var bodyParse= require(''body-parse'');
+server.use(bodyParse.urlencode({}));
+req.body    //为解析出的数据
+
+返回数据
+response.send() -> .wirte()+.end()的结合体方法
+
+
+static插件 ->npm install static -> var static = require(''static'');
+server.use(static('子路径'));  //改变文件夹方向
+

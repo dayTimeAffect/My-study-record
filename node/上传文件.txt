@@ -1,0 +1,94 @@
+客户端form 上传文件   属性enctype = multipart/form-data
+
+服务端解析
+multer
+npm intall multer
+
+->引入var Multer = require('multer')
+
+->server.use(Multer().any())   //.any()  任何格式的文件都可以接受
+
+
+->req.files  //解析完的数据
+
+
+multer({dest:'储存的文件地址'})  -> 可以自动储存，用hash值做文件名，但是无后缀
+用path组件->引入var path = require('path')
+path.parse('完整文件名')解析出的对象
+{
+root:'根',
+dir:'绝对路径',
+base:'完整文件名',
+ext:'后缀',
+name:'不包含后缀的文件名'
+}
+所以
+path.parse(require.files[0].originalname).ext后缀
+
+fs.rename(require.files[0].path,require.files.path+path.parse(require.files[0].originalname).ext)
+
+
+
+
+
+
+multer解析完上传文件后，会被保存为一个包含以下字段的对象：
+       fieldname - 表单提交的文件名(input控件的name属性)
+       originalname - 文件在用户设备中的原始名称
+       encoding - 文件的编码类型
+       mimetype - 文件的Mime类型
+       size - 文件的大小
+       destination - 文件的保存目录(DiskStorage)
+       filename - 文件在destination中的名称(DiskStorage)
+       path - 上传文件的全路径(DiskStorage)
+       buffer - 文件对象的Buffer(MemoryStorage)
+
+
+Multer的选项对象中可以包含以下值：
+       dest或storage - 文件存储位置
+       fileFilter - 函数，控制可上传的文件类型
+       limits - 上传数据限制(文件大小)
+
+.single(fieldname) - 单个文件上传
+接收一个名为fieldname的上传文件，所上传的文件会被保存在req.file。
+
+.array(fieldname[, maxCount]) - 多个文件上传
+接收名为fieldname的，多个上传文件数组。可选参数maxCount表示可接受的文件数量，上传文件数超出该参数指定的数据后会抛出一个错误。文件数组会被保存在req.files中。
+
+.fields(fields) - 多个文件上传
+
+接收通过fields指定的多个上传文件。文件数组对象会被保存在req.files中。
+fields是一个包含对象的数组，对象中会包含name和maxCount两个属性：
+[
+ { name: 'avatar', maxCount: 1 },
+ { name: 'gallery', maxCount: 8 }
+]
+
+
+limits - 文件尺寸
+该选项用于设置文件尺寸，Multer 会将这个对象传递至busboy中。limits对象中可以包含以下可选值：
+       fieldNameSize - 字段名最大尺寸。默认值：100 bytes
+       fieldSize - 字段值最大尺寸。默认值：1MB
+       fields - 非文件字段的最大数量。默认值：Infinity
+       fileSize - multipart 表单中，文件的最大尺寸。默认值：Infinity
+       files - multipart 表单中，文件最大数量。默认值：Infinity
+       parts - multipart 表单中，最大组件(fields+files)数量。默认值：Infinity
+       headerPairs - 默认值：2000
+
+fileFilter - 文件筛选
+
+fileFilter用于控制要哪些文件是可接受的，哪些是要被拒绝的。使用形式如下：
+function fileFilter (req, file, cb) {
+ 
+ // 需要调用回调函数 `cb`，
+ // 并在第二个参数中传入一个布尔值，用于指示文件是否可接受
+ 
+ // 如果要拒绝文件，上传则传入 `false`。如:
+ cb(null, false)
+ 
+ // 如果接受上传文件，则传入 `true`。如:
+ cb(null, true)
+ 
+ // 出错后，可以在第一个参数中传入一个错误：
+ cb(new Error('I don\'t have a clue!'))
+}

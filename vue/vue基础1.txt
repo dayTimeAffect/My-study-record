@@ -1,0 +1,42 @@
+<!-- 实例化vue -->
+new Vue({
+  el:element,  //需要获取的html中的根容器元素
+
+  data:{  //用于数据的储存
+    key:val	
+  },
+
+  methods:{   //用于储存方法
+    method:function(val){
+      return this.key   //获取data中的key的val值
+    }
+  }
+});
+
+
+注意：使用双花括号获取方法需要在方法名后面带()
+使用：
+{{ key }} 获取data中的val值
+{{ method(val) }}  可以直接获取methods中的方法
+
+属性绑定：不用双花括号
+v-bind
+例如：	data中：website:'http://www.baidu.com'
+	<a v-bind:href="website">微博开发</a>
+v-html 
+例如：	data中：websiteTag:'<a href="http://www.taobao.com">'
+	<p v-html="websiteTag"></p>
+
+事件绑定：
+v-on:事件//click,dblclick等等
+例如：v-on:click="data属性改变...等操作"
+      <button v-on:click="method" />  //methods中的方法
+
+事件修饰符：
+.stop/.prevent/.capture/.self/.once/.passive
+阻止冒泡事件/阻止默认事件/使用事件捕获/只触发本身触发的事件/只触发一次/
+
+键值修饰符
+.enter/.alt等等
+
+修饰符可以使用链式写法 

@@ -1,0 +1,10 @@
+const fs = require('fs')
+
+fs.writeFile('文档名','文档内容'，function(err){  //写入文档
+})
+fs.readFile('./+文档名'，function(err,data读出的内容){  //写入文档
+})
+fs.unlink('文件名'，function(err){  //删除
+})
+fs.rename('要修改的文件'，'修改成的文件名'，function(err){  //修改名字
+})

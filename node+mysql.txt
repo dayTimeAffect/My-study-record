@@ -1,0 +1,35 @@
+增：INSERT INTO `表名称` (`key1`, `key2`....) VALUES ("值1", "值2",....)   ||   指定所要插入数据的列：  INSERT INTO table_name (列1, 列2,...) VALUES (值1, 值2,....)
+删：DELETE FROM `表名称` WHERE 列名称 = 值
+改：UPDATE `表名称` SET 列名称1 = 新值 , 列名称2 = 新值  WHERE 列名称 = 某值
+查：SELECT 列名称1,.... FROM `表名称`    ||        SELECT * FROM 表名称  
+
+WHERE：例如：SELECT (`列名称1`,.....) FROM `表名称` WHERE 列名称 运算符 "值"
+AND/OR：AND 和 OR 可在 WHERE 子语句中把两个或多个条件结合起来。例如 ：。。。WHERE FirstName='Thomas' AND/OR LastName='Carter'
+先下载插件mysql
+
+npm i mysql
+
+var mysql = require('mysql');
+
+var poll = mysql.createPool({
+    host:'localhost', //链接地址
+    'port':'3306', //接口， 3306为默认接口
+    'user':'root', //数据库用户名
+    'password':'123456', //密码
+    'database':'邓俊', //库名
+})
+poll.getConnection(function (err,connection) {
+    if(err){
+        console.log('链接失败');
+    }else {
+        connection.query(SQL语句,function (err,data) {  
+            if(err){
+                console.log(err);
+            }else {
+                console.log(data);
+                connection.end(); //断开链接
+            }
+        })
+    }
+})
+

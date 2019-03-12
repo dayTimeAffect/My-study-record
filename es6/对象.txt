@@ -1,0 +1,4 @@
+Objext.is(xxx,xxx);比较两个值是否相等
+Objext.is(NaN,NaN)为ture，Objext.is(+0,-0)为false;
+
+Object.assign();用来合并对象。第一级属性深拷贝，以后级别属性浅拷贝
