@@ -1,4 +1,5 @@
 css3  flex布局
+flex（ flexible box：弹性布局盒模型）,是2009年w3c提出的一种可以简洁、快速弹性布局的属性。主要思想是给予容器控制内部元素高度和宽度的能力。
 
 盒子模型：box-sizing:content-box|border-box
 前者width/height属性为content区域宽高,padding/border会使盒子往外扩展变大
